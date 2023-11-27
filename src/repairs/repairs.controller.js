@@ -1,4 +1,3 @@
-const RepairsModel = require('./repairs.model.js')
 const RepairsServices = require('./repairs.service.js')
 
 const findAllRepairs = async (req, res) => {
