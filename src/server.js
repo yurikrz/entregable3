@@ -1,18 +1,18 @@
-const app = require('./app.js')
-const {envs} = require('./config/enviroment/enviroment.js')
-const {authenticated, syncUp} = require('./config/database/database')
+import app from './app.js';
+import { authenticated, syncUp } from './config/database/database.js';
+import { envs } from './config/enviroments/enviroments.js';
 
-const main = async ()=>{
-    try {
-        await authenticated()
-        await syncUp()
-    } catch (error) {
-        console.log(error)
-    }
-}
+const main = async () => {
+  try {
+    await authenticated();
+    await syncUp();
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-main()
+main();
 
-app.listen(envs.PORT, ()=>{
-    console.log(`Server running on port ${envs.PORT}`)
-})
+app.listen(envs.PORT, () => {
+  console.log(`Server running on port ${envs.PORT}`);
+});
