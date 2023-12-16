@@ -1,11 +1,18 @@
+import { User } from '../user/user.model.js';
 import { Repair } from './repair.model.js';
 
 export class RepairService {
   static async findAll() {
     return await Repair.findAll({
       where: {
-        status: 'pending',
+        status: ['pending', 'completed'],
       },
+      include: [
+        {
+          model: User,
+          attributes: ['id', 'name', 'email'],
+        },
+      ],
     });
   }
 
